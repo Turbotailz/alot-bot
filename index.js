@@ -16,6 +16,7 @@ client.on('ready', () => {
 client.on('message', (msg) => {
 	// Check messages for certain ways "alot" is said
 	if (
+		(
 		// latinize makes sure any diacritics are converted to regular latin characters
 		latinize(msg.content).toLowerCase().includes('alot')
 		// Knightman can't escape the bot
@@ -26,8 +27,9 @@ client.on('message', (msg) => {
 		|| latinize(msg.content).toLowerCase().includes('aiot')
 		// regional indicators as well
 		|| msg.content.includes('🇦 🇱 🇴 🇹')
+		)
 		// check if the channel is not in the list of ignored channels
-		&& !config.ignoredChannels.includes(msg.channel.id)
+		&& !config.ignoredChannels.includes(msg.channel.id.toString())
 	) {
 		try {
 			// add the reaction
