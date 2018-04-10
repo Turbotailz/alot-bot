@@ -11,6 +11,10 @@ const client = new Discord.Client();
 // Log to console when alot bot is ready
 client.on('ready', () => {
 	console.log('alot is ready and waiting');
+
+	client.user.setActivity('your grammar', {type: 'WATCHING'})
+		.then(presence => console.log(`Set activity to ${presence.game ? presence.game.name : 'none'}`))
+		.catch(console.error);
 });
 
 client.on('message', (msg) => {
