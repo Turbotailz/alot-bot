@@ -24,6 +24,8 @@ client.on('message', (msg) => {
 		|| msg.isMentioned(client.user)
 		// don't forget the elusive capital I trick
 		|| latinize(msg.content).toLowerCase().includes('aiot')
+		// regional indicators as well
+		|| msg.content.includes('🇦 🇱 🇴 🇹')
 	) {
 		try {
 			// add the reaction
