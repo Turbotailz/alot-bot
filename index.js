@@ -26,6 +26,8 @@ client.on('message', (msg) => {
 		|| latinize(msg.content).toLowerCase().includes('aiot')
 		// regional indicators as well
 		|| msg.content.includes('🇦 🇱 🇴 🇹')
+		// check if the channel is not in the list of ignored channels
+		&& !config.ignoredChannels.includes(msg.channel.id)
 	) {
 		try {
 			// add the reaction
