@@ -29,6 +29,10 @@ client.on('message', (msg) => {
 		|| msg.isMentioned(client.user)
 		// don't forget the elusive capital I trick
 		|| latinize(msg.content).toLowerCase().includes('aiot')
+		// zeros look like O
+		|| latinize(msg.content).toLowerCase().includes('al0t')
+		// and just in case they get sneaky
+		|| latinize(msg.content).toLowerCase().includes('ai0t')
 		// regional indicators as well
 		|| msg.content.includes('🇦 🇱 🇴 🇹')
 		)
