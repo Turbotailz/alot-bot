@@ -3,5 +3,5 @@
 	"token":"",
 	"knightmanId":"",
 	"alotEmojiId":"",
-	"ignoreChannels":[]
+	"ignoredChannels":[]
 }
