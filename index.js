@@ -22,6 +22,8 @@ client.on('message', (msg) => {
 		|| (latinize(msg.content).toLowerCase().includes('a lot') && msg.author.id == config.knightmanId)
 		// alot is self-aware (because otherwise it won't react to mention of its own name, stupid alot)
 		|| msg.isMentioned(client.user)
+		// don't forget the elusive capital I trick
+		|| latinize(msg.content).toLowerCase().includes('aiot')
 	) {
 		try {
 			// add the reaction
