@@ -49,6 +49,10 @@ client.on('message', (msg) => {
 			console.error('alot failed');
 		}
 	}
+
+	if (msg.content.toLowerCase().startsWith('good bot')) {
+		return msg.channel.send('Thank you.');
+	}
 });
 
 // login boi
