@@ -50,7 +50,7 @@ client.on('message', (msg) => {
 		}
 	}
 
-	if (msg.content.toLowerCase().startsWith('good bot')) {
+	if (msg.content.toLowerCase() === 'good bot') {
 		return msg.channel.send('Thank you.');
 	}
 });
