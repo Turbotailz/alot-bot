@@ -12,9 +12,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
 	console.log('alot is ready and waiting');
 
-	client.user.setActivity('your grammar', {type: 'WATCHING'})
-		.then(presence => console.log(`Set activity to ${presence.game ? presence.game.name : 'none'}`))
-		.catch(console.error);
+	client.user.setActivity('your grammar', {type: 'WATCHING'});
 });
 
 client.on('message', (msg) => {
@@ -39,19 +37,19 @@ client.on('message', (msg) => {
 		// check if the channel is not in the list of ignored channels
 		&& !config.ignoredChannels.includes(msg.channel.id.toString())
 	) {
-		try {
-			// add the reaction
-			msg.react(msg.guild.emojis.get(config.alotEmojiId));
+		// add the reaction
+		msg.react(msg.guild.emojis.get(config.alotEmojiId))
+		.then(() => {
 			// log it to the console
 			console.log(`Reacted: "${msg.content}" by ${msg.author.username}`);
-		} catch (error) {
-			// idk how to error
-			console.error('alot failed');
-		}
+		})
+		.catch(console.error);
 	}
 
 	if (msg.content.toLowerCase() === 'good bot') {
-		return msg.channel.send('Thank you.');
+		msg.channel.send('Thank you.')
+		.then()
+		.catch(console.error);
 	}
 });
 
