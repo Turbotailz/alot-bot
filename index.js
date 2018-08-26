@@ -48,7 +48,28 @@ client.on('message', (msg) => {
 
 	if (msg.content.toLowerCase() === 'good bot') {
 		msg.channel.send('Thank you.')
-		.then()
+		.then(() => {
+			console.log(`Thanked ${msg.author.username}`);
+		})
+		.catch(console.error);
+	}
+
+	if (
+		(
+		msg.content.includes('...')
+		|| msg.content === '.'
+		|| msg.content === '..'
+		|| msg.content.includes('•••')
+		|| msg.content.includes('.. .')
+		|| msg.content.includes('. ..')
+		|| msg.content.includes('```')
+		)
+		&& msg.author.id == config.LCId
+	) {
+		msg.delete()
+		.then(() => {
+			console.log(`Deleted "${msg.content}" by ${msg.author.username}`);
+		})
 		.catch(console.error);
 	}
 });
