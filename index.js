@@ -21,8 +21,6 @@ client.on('message', (msg) => {
 		(
 		// latinize makes sure any diacritics are converted to regular latin characters
 		latinize(msg.content).toLowerCase().includes('alot')
-		// Knightman can't escape the bot
-		|| (latinize(msg.content).toLowerCase().includes('a lot') && msg.author.id == config.knightmanId)
 		// alot is self-aware (because otherwise it won't react to mention of its own name, stupid alot)
 		|| msg.isMentioned(client.user)
 		// don't forget the elusive capital I trick
@@ -46,33 +44,16 @@ client.on('message', (msg) => {
 		.catch(console.error);
 	}
 
-	if (msg.content.toLowerCase() === 'good bot') {
+	if (msg.content.toLowerCase().includes('good bot')) {
 		msg.channel.send('Thank you.')
 		.then(() => {
 			console.log(`Thanked ${msg.author.username}`);
 		})
 		.catch(console.error);
 	}
-
-	if (
-		(
-		msg.content.includes('...')
-		|| msg.content === '.'
-		|| msg.content === '..'
-		|| msg.content.includes('•••')
-		|| msg.content.includes('.. .')
-		|| msg.content.includes('. ..')
-		|| msg.content.includes('```')
-		)
-		&& msg.author.id == config.LCId
-	) {
-		msg.delete()
-		.then(() => {
-			console.log(`Deleted "${msg.content}" by ${msg.author.username}`);
-		})
-		.catch(console.error);
-	}
 });
+
+client.on('error', console.error);
 
 // login boi
 client.login(config.token);

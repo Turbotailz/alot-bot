@@ -1,7 +1,6 @@
 {
 	"_comment":"rename this file to config.json and remove this line",
 	"token":"",
-	"knightmanId":"",
 	"alotEmojiId":"",
 	"ignoredChannels":[]
 }
