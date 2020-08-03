@@ -15,7 +15,7 @@ The bot will react to any mention of the word "alot". It will also say "thank yo
 
 ## Alot image
 Here's a picture of an Alot for your convenience. Add it to your Discord server's emoji list.  
-![Alot](http://turbotailz.com/alot.png)
+![Alot](https://cdn.discordapp.com/emojis/554175101810114582.png)
 
 ## Getting the emoji ID
 If you named the emoji `alot` then you can type `\:alot:` in any channel (on your server) to get the ID.
